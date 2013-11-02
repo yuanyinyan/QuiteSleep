@@ -145,9 +145,11 @@ public class DeleteBannedFragment extends BaseListFragment implements OnItemClic
 
         switch (item.getItemId()) {
             case R.id.menu_removeall:
-                SherlockDialogFragment dialogFragment = ContactsFragmentDialog.newInstance(this,
-                        ConfigAppValues.DialogType.REMOVE_ALL_CONTACTS);
-                dialogFragment.show(getSherlockActivity().getSupportFragmentManager(), "warningDialog");
+                if (!isAdapterEmpty()) {
+                    SherlockDialogFragment dialogFragment = ContactsFragmentDialog.newInstance(this,
+                            ConfigAppValues.DialogType.REMOVE_ALL_CONTACTS);
+                    dialogFragment.show(getSherlockActivity().getSupportFragmentManager(), "warningDialog");
+                }
                 break;
             default:
                 break;

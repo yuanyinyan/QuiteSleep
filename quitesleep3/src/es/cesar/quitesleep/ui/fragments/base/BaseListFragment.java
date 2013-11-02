@@ -38,7 +38,7 @@ import com.actionbarsherlock.app.SherlockListFragment;
  */
 public abstract class BaseListFragment extends SherlockListFragment {
 
-    public ArrayAdapter<String> myOwnAdapter;
+    protected ArrayAdapter<String> myOwnAdapter;
 
     // Used to fix the index cursor when we delete items from the list
     private boolean fixIndexCursor = false;
@@ -109,6 +109,19 @@ public abstract class BaseListFragment extends SherlockListFragment {
      */
     public void hideProgressLoader() {
         getSherlockActivity().setSupportProgressBarIndeterminateVisibility(false);
+    }
+
+    /**
+     * Checks if the adapter is empty or not
+     * 
+     * @return
+     */
+    protected boolean isAdapterEmpty() {
+        if (myOwnAdapter != null && myOwnAdapter.getCount() > 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }
