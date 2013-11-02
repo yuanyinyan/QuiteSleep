@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ 	Copyright 2010 Cesar Valiente Gordo
+ 
+ 	This file is part of QuiteSleep.
+
+    QuiteSleep is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    QuiteSleep is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with QuiteSleep.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- Block all incoming calls -->
+
+        <TextView
+            android:id="@+id/configothercalls.separator.blockall"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dip"
+            android:text="@string/configothercalls.separator.blockall" />
+
+        <RadioButton
+            android:id="@+id/configothercalls.radiobutton.blockall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:enabled="true" />
+
+        <!-- Block only the incoming calls from the blocked contacts -->
+
+        <TextView
+            android:id="@+id/configothercalls.separator.block_blocked_contacts"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dip"
+            android:text="@string/configothercalls.separator.block_blocked_contacts" />
+
+        <RadioButton
+            android:id="@+id/configothercalls.radiobutton.block_blocked_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:enabled="true" />
+
+        <!-- Block unknown incomming calls -->
+
+        <TextView
+            android:id="@+id/configothercalls.separator.blockunknown"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dip"
+            android:text="@string/configothercalls.separator.blockunknown" />
+
+        <RadioButton
+            android:id="@+id/configothercalls.radiobutton.blockunknown"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:enabled="true" />
+
+        <!-- Block all unknown incoming calls and the ones form blocked contacts -->
+
+        <TextView
+            android:id="@+id/configothercalls.separator.block_unknwown_and_blocked_contacts"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dip"
+            android:text="@string/configothercalls.separator.block_unknwown_and_blocked_contacts" />
+
+        <RadioButton
+            android:id="@+id/configothercalls.radiobutton.block_unknwown_and_blocked_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:enabled="true" />
+    </RadioGroup>
+
+</ScrollView>

@@ -1,0 +1,53 @@
+QuiteSleep
+
+Copyright 2010, 2011, 2012 Cesar Valiente Gordo <cesar.valiente@gmail.com>
+
+
+-----------		Cesar Valiente contact forms 	-----------------------------------
+Mail: 						cesar.valiente@gmail.com
+Blog:						http://memyworldandmylife.wordpress.com/
+Twitter: 					https://twitter.com/CesarValiente
+Linkedin:					http://es.linkedin.com/in/cesarvaliente
+
+
+-----------		QuiteSleep web pages	---------------------------------------
+QuiteSleep project in Google Code (mercurial repository):		https://code.google.com/p/quitesleep
+QuiteSleep discussion group:									http://groups.google.com/group/QuiteSleep
+
+-------------------------------------------------------------------------------
+
+This project make use of parts of code, libraries, or projects that have 
+served inspiration to me:
+
+- db4o: licensed under a multi-dual-licensing model, by our case GNU GPLv3
+- Java Mail: licensed under a multi-dual-licensing model, by our case Apache License v2.
+- SMS Backup+ by Jan Berkel <jan.berkel@gmail.com> licensed under Apache License v2,
+	his project has served me to learn to put or modify features such as 
+	About me and OAuth authentication.
+- ActionBar Sherlock: <http://actionbarsherlock.com/> made by Jake Wharton is an incredible
+open source project created to uses the action bar design pattern in the same way is used in Android 3.0 
+and up, but also for the older versions.
+Licensed under Apache License v2.
+- ViewPagerIndicator: <http://viewpagerindicator.com/> also created by Jake Wharton is the adaptation
+of the new view pager design pattern for new and older Android versions.
+Licensed under Apache License v2.
+- Android Asset Studio: <http://android-ui-utils.googlecode.com/hg/asset-studio/dist/index.html>
+This website allows you to create different drawables for your Android app.
+- Da Button Factory: <http://dabuttonfactory.com/> allows you to create your own buttons.
+- Android Action Bar Style Generator: <jgilfelt.github.com/android-actionbarstylegenerator/> project created
+by Jeff Gilfelt to allow you to create and customize yout own native ActionBar and the ActionBar Sherlock. 
+	
+--------------------------------------------------------------------------------
+
+Many thanks to:
+
+My family.
+My friends.
+My classmates and teachers in my two M.Sc.
+My friends at Icemobile B.V. in Amsterdam (Netherlands) where I've learned this last year a loooooot!!
+All people who by one way or another have something to see in this project.
+
+--------------------------------------------------------------------------------
+
+If you like the project, join me!!!! I will be happy to work with you!!!!!
+

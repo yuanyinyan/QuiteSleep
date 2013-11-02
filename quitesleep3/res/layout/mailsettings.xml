@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ 	Copyright 2010 Cesar Valiente Gordo
+ 
+ 	This file is part of QuiteSleep.
+
+    QuiteSleep is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    QuiteSleep is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with QuiteSleep.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/mailsettings.separator.user"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_marginTop="5dip"
+            android:text="@string/mailsettings.separator.user" />
+
+        <EditText
+            android:id="@+id/mailsettings.edittext.user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="@string/mailsettings.edittext.user" />
+
+        <TextView
+            android:id="@+id/mailsettings.separator.passwd"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_marginTop="5dip"
+            android:text="@string/mailsettings.separator.passwd" />
+
+        <EditText
+            android:id="@+id/mailsettings.edittext.passwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/mailsettings.separator.subject"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_marginTop="5dip"
+            android:text="@string/mailsettings.separator.subject" />
+
+        <EditText
+            android:id="@+id/mailsettings.edittext.subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailSubject"
+            android:text="@string/mailsettings.edittext.subject" />
+
+        <TextView
+            android:id="@+id/mailsettings.separator.body"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_marginTop="5dip"
+            android:text="@string/mailsettings.separator.body" />
+
+        <EditText
+            android:id="@+id/mailsettings.edittext.body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mailsettings.edittext.body" />
+
+        <View
+            style="@style/divider_blue_normal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp" />
+
+        <ToggleButton
+            android:id="@+id/mailsettings.togglebutton.mailservice"
+            style="@style/common_toggle_button_style"
+            android:drawableLeft="@drawable/start_service"
+            android:textOff="@string/mailsettings.togglebutton.start_mail"
+            android:textOn="@string/mailsettings.togglebutton.stop_mail" />
+    </LinearLayout>
+
+</ScrollView>
