@@ -89,13 +89,26 @@ public abstract class BaseListFragment extends SherlockListFragment {
         if (view.getWidth() <= 0) {
             return;
         }
-        int newWidth = fixIndexCursor ? view.getWidth() - 1
-                : view.getWidth() + 1;
+        int newWidth = fixIndexCursor ? view.getWidth() - 1 : view.getWidth() + 1;
         ViewGroup.LayoutParams params = view.getLayoutParams();
         params.width = newWidth;
         view.setLayoutParams(params);
 
         fixIndexCursor = !fixIndexCursor;
+    }
+
+    /**
+     * Shows the actionbar progress loder
+     */
+    public void showProgressLoader() {
+        getSherlockActivity().setSupportProgressBarIndeterminateVisibility(true);
+    }
+
+    /**
+     * Hides the action progress loader
+     */
+    public void hideProgressLoader() {
+        getSherlockActivity().setSupportProgressBarIndeterminateVisibility(false);
     }
 
 }
