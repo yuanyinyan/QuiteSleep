@@ -280,7 +280,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
                     es.cesar.quitesleep.utils.Toast.r(QuiteSleepApp.getContext(),
                             this.getString(R.string.settings_toast_stop_service), Toast.LENGTH_SHORT);
                 } else {
-                    // An error has ocurred!!
+                    // An error has occurred!!
                     es.cesar.quitesleep.utils.Toast.r(QuiteSleepApp.getContext(),
                             this.getString(R.string.settings_toast_fail_service), Toast.LENGTH_SHORT);
                 }
