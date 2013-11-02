@@ -48,28 +48,9 @@ import es.cesar.quitesleep.utils.Log;
  * @mail cesar.valiente@gmail.com
  * 
  */
-public class ScheduleFragment extends SherlockFragment implements
-        OnClickListener {
+public class ScheduleFragment extends SherlockFragment implements OnClickListener {
 
     private final String CLASS_NAME = getClass().getName();
-
-    // Ids for the button widgets
-    private final int startTimeButtonId = R.id.schedule_button_startTime;
-    private final int endTimeButtonId = R.id.schedule_button_endTime;
-    private final int daysWeekButtonId = R.id.schedule_button_daysweek;
-
-    // Ids for thextViews widgets
-    private final int startTimeLabelId = R.id.schedule_textview_startTime;
-    private final int endTimeLabelId = R.id.schedule_textview_endTime;
-
-    // Days of the week checkboxes Ids
-    private final int mondayCheckId = R.id.schedule_checkbox_monday;
-    private final int tuesdayCheckId = R.id.schedule_checkbox_tuesday;
-    private final int wednesdayCheckId = R.id.schedule_checkbox_wednesday;
-    private final int thursdayCheckId = R.id.schedule_checkbox_thursday;
-    private final int fridayCheckId = R.id.schedule_checkbox_friday;
-    private final int saturdayCheckId = R.id.schedule_checkbox_saturday;
-    private final int sundayCheckId = R.id.schedule_checkbox_sunday;
 
     // labels for start and end times
     private TextView startTimeLabel;
@@ -87,8 +68,8 @@ public class ScheduleFragment extends SherlockFragment implements
     final private String CALCULATOR_FONT = "fonts/calculator_script_mt.ttf";
 
     @Override
-    public View onCreateView(final LayoutInflater inflater,
-            final ViewGroup container, final Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
+            final Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.scheduletab, container, false);
     }
@@ -100,41 +81,29 @@ public class ScheduleFragment extends SherlockFragment implements
 
         setHasOptionsMenu(true);
 
-        ImageButton startTimeButton = (ImageButton) getSherlockActivity()
-                .findViewById(startTimeButtonId);
-        ImageButton endTimeButton = (ImageButton) getSherlockActivity()
-                .findViewById(endTimeButtonId);
-        Button daysWeekButton = (Button) getSherlockActivity().findViewById(
-                daysWeekButtonId);
+        ImageButton startTimeButton = (ImageButton) getSherlockActivity().findViewById(
+                R.id.schedule_button_startTime);
+        ImageButton endTimeButton = (ImageButton) getSherlockActivity().findViewById(R.id.schedule_button_endTime);
+        Button daysWeekButton = (Button) getSherlockActivity().findViewById(R.id.schedule_button_daysweek);
 
         // --------- Define our own text style used a custom font ------//
-        startTimeLabel = (TextView) getSherlockActivity().findViewById(
-                startTimeLabelId);
-        endTimeLabel = (TextView) getSherlockActivity().findViewById(
-                endTimeLabelId);
+        startTimeLabel = (TextView) getSherlockActivity().findViewById(R.id.schedule_textview_startTime);
+        endTimeLabel = (TextView) getSherlockActivity().findViewById(R.id.schedule_textview_endTime);
 
-        Typeface face = Typeface.createFromAsset(getSherlockActivity()
-                .getAssets(), CALCULATOR_FONT);
+        Typeface face = Typeface.createFromAsset(getSherlockActivity().getAssets(), CALCULATOR_FONT);
 
         startTimeLabel.setTypeface(face);
         endTimeLabel.setTypeface(face);
         // -------------------------------------------------------------------//
 
         // Instantiate the days of the week checkboxes
-        mondayCheck = (CheckBox) getSherlockActivity().findViewById(
-                mondayCheckId);
-        tuesdayCheck = (CheckBox) getSherlockActivity().findViewById(
-                tuesdayCheckId);
-        wednesdayCheck = (CheckBox) getSherlockActivity().findViewById(
-                wednesdayCheckId);
-        thursdayCheck = (CheckBox) getSherlockActivity().findViewById(
-                thursdayCheckId);
-        fridayCheck = (CheckBox) getSherlockActivity().findViewById(
-                fridayCheckId);
-        saturdayCheck = (CheckBox) getSherlockActivity().findViewById(
-                saturdayCheckId);
-        sundayCheck = (CheckBox) getSherlockActivity().findViewById(
-                sundayCheckId);
+        mondayCheck = (CheckBox) getSherlockActivity().findViewById(R.id.schedule_checkbox_monday);
+        tuesdayCheck = (CheckBox) getSherlockActivity().findViewById(R.id.schedule_checkbox_tuesday);
+        wednesdayCheck = (CheckBox) getSherlockActivity().findViewById(R.id.schedule_checkbox_wednesday);
+        thursdayCheck = (CheckBox) getSherlockActivity().findViewById(R.id.schedule_checkbox_thursday);
+        fridayCheck = (CheckBox) getSherlockActivity().findViewById(R.id.schedule_checkbox_friday);
+        saturdayCheck = (CheckBox) getSherlockActivity().findViewById(R.id.schedule_checkbox_saturday);
+        sundayCheck = (CheckBox) getSherlockActivity().findViewById(R.id.schedule_checkbox_sunday);
 
         // Define the onClick listeners
         startTimeButton.setOnClickListener(this);
@@ -160,19 +129,15 @@ public class ScheduleFragment extends SherlockFragment implements
 
         switch (viewId) {
 
-            case startTimeButtonId:
-                StartTimeFragmentDialog startTimeDialog = StartTimeFragmentDialog
-                        .newInstance(this, startTimeLabel);
-                startTimeDialog.show(getSherlockActivity()
-                        .getSupportFragmentManager(), "startTime");
+            case R.id.schedule_button_startTime:
+                StartTimeFragmentDialog startTimeDialog = StartTimeFragmentDialog.newInstance(this, startTimeLabel);
+                startTimeDialog.show(getSherlockActivity().getSupportFragmentManager(), "startTime");
                 break;
-            case endTimeButtonId:
-                EndTimeFragmentDialog endTimeDialog = EndTimeFragmentDialog
-                        .newInstance(this, endTimeLabel);
-                endTimeDialog.show(getSherlockActivity()
-                        .getSupportFragmentManager(), "endTime");
+            case R.id.schedule_button_endTime:
+                EndTimeFragmentDialog endTimeDialog = EndTimeFragmentDialog.newInstance(this, endTimeLabel);
+                endTimeDialog.show(getSherlockActivity().getSupportFragmentManager(), "endTime");
                 break;
-            case daysWeekButtonId:
+            case R.id.schedule_button_daysweek:
                 saveDayWeeksSelection();
                 break;
         }
@@ -208,15 +173,13 @@ public class ScheduleFragment extends SherlockFragment implements
                 clientDDBB.close();
 
                 es.cesar.quitesleep.utils.Toast.r(QuiteSleepApp.getContext(),
-                        this.getString(R.string.schedule_toast_daysweek_ok),
-                        Toast.LENGTH_SHORT);
+                        this.getString(R.string.schedule_toast_daysweek_ok), Toast.LENGTH_SHORT);
 
                 return true;
 
             } else {
                 es.cesar.quitesleep.utils.Toast.r(QuiteSleepApp.getContext(),
-                        this.getString(R.string.schedule_toast_daysweek_ko),
-                        Toast.LENGTH_SHORT);
+                        this.getString(R.string.schedule_toast_daysweek_ko), Toast.LENGTH_SHORT);
 
                 return false;
             }
@@ -239,13 +202,11 @@ public class ScheduleFragment extends SherlockFragment implements
 
             Schedule schedule = clientDDBB.getSelects().selectSchedule();
             if (schedule != null) {
-                if (schedule.getStartFormatTime() != null
-                        && !schedule.getStartFormatTime().equals("")) {
+                if (schedule.getStartFormatTime() != null && !schedule.getStartFormatTime().equals("")) {
                     startTimeLabel.setText(schedule.getStartFormatTime());
                 }
 
-                if (schedule.getEndFormatTime() != null
-                        && !schedule.getEndFormatTime().equals("")) {
+                if (schedule.getEndFormatTime() != null && !schedule.getEndFormatTime().equals("")) {
                     endTimeLabel.setText(schedule.getEndFormatTime());
                 }
 
