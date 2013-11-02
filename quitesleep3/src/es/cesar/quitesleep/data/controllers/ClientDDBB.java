@@ -15,10 +15,9 @@
 
     You should have received a copy of the GNU General Public License
     along with QuiteSleep.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package es.cesar.quitesleep.data.controllers;
-
 
 import android.util.Log;
 
@@ -36,171 +35,173 @@ import es.cesar.quitesleep.utils.ExceptionUtils;
  * 
  * @author Cesar Valiente Gordo
  * @mail cesar.valiente@gmail.com
- *
+ * 
  */
-public class ClientDDBB implements IDDBB{		
-	
-	final String CLASS_NAME = getClass().getName();
-	
-	protected ObjectContainer clientDDBB;
-	
-	
-	protected Selects selects;
-	protected Inserts inserts;
-	protected Updates updates;
-	protected Deletes deletes;
-	
-	
-	/**
-	 * This function return the ObjectContainer ised like as clientDDBB for
-	 * the application.
-	 * 
-	 * @return		The ObjectContainer used like as clientDDBB
-	 * @see			ObjectContainer
-	 */
-	public ObjectContainer getObjectContainer () {
-		return clientDDBB;
-	}
-	
-	
-			
-	/**
-	 * Otro cliente para conectarse al servidor de forma embebida, pero
-	 * a diferencia del anterior, usamos una clase estática que lo lanza.
-	 */	
-	public ClientDDBB () {
-		
-		try
-		{												
-			synchronized (SEMAPHORE) {
-							
-				clientDDBB = ServerDDBB.getServer().openClient();								
-				
-				
-				selects = new Selects(clientDDBB);
-				inserts = new Inserts(clientDDBB);
-				updates = new Updates(clientDDBB);
-				deletes = new Deletes(clientDDBB);
-				
-			}						
-		}catch (Exception e) {
-			Log.e(CLASS_NAME, ExceptionUtils.getString(e));
-		}
-	}
-	
-	/**
-	 * 
-	 * @param cliente
-	 */
-	public ClientDDBB (ObjectContainer clientDDBB) {
+public class ClientDDBB implements IDDBB {
 
-		try {
-			synchronized (SEMAPHORE) {
-									
-				
-				selects = new Selects(clientDDBB);
-				inserts = new Inserts(clientDDBB);
-				updates = new Updates(clientDDBB);
-				deletes = new Deletes(clientDDBB);
-				
-			}
-			
-		}catch (Exception e) {
-			Log.e(CLASS_NAME, ExceptionUtils.getString(e));
-		}
-	}
+    final String CLASS_NAME = getClass().getName();
 
-	/**
-	 * Constructor al que le pasamos un servidor para que lo utilice en vez
-	 * de utilizar el que pone en memoria la clase ServerBBDDEmbebido.
-	 * 
-	 * Este constructor esta creado para ser utilizado en la Migración de BBDD.
-	 * 
-	 * @param server
-	 */
-	public ClientDDBB (ObjectServer serverDDBB) {
-		
-		try
-		{												
-			synchronized (SEMAPHORE) {
-			
-				clientDDBB = serverDDBB.openClient();
-			
-				
-				selects = new Selects(clientDDBB);
-				inserts = new Inserts(clientDDBB);
-				updates = new Updates(clientDDBB);
-				deletes = new Deletes(clientDDBB);
-				
-			}						
-		}catch (Exception e) {
-			Log.e(CLASS_NAME, ExceptionUtils.getString(e));
-		}
-	}
-	
-	
-	/**
-	 * Function that close the ClientDDBB if it's opened previously
-	 */
-	public void close () {
-		if (!isClosed())
-			// close the ObjectContainer 
-			clientDDBB.close();
-	}
-	
-	
-	/**
-	 * Function that said if the client is closed
-	 * @return		true or false if the clientDDBB is closed or not
-	 * @see			boolean
-	 */
-	public boolean isClosed () {
-		if (clientDDBB != null)
-			return clientDDBB.ext().isClosed();
-		else
-			return true;
-	}
-	
-	public void commit () {
-		clientDDBB.commit();
-	}
+    protected ObjectContainer clientDDBB;
 
+    protected Selects selects;
+    protected Inserts inserts;
+    protected Updates updates;
+    protected Deletes deletes;
 
-	public ObjectContainer getClientDDBB() {
-		return clientDDBB;
-	}
-	public void setClientDDBB(ObjectContainer clientDDBB) {
-		this.clientDDBB = clientDDBB;
-	}
+    /**
+     * This function return the ObjectContainer ised like as clientDDBB for the
+     * application.
+     * 
+     * @return The ObjectContainer used like as clientDDBB
+     * @see ObjectContainer
+     */
+    public ObjectContainer getObjectContainer() {
+        return clientDDBB;
+    }
 
-	public Selects getSelects() {
-		return selects;
-	}
-	public void setSelects(Selects selects) {
-		this.selects = selects;
-	}
+    /**
+     * Otro cliente para conectarse al servidor de forma embebida, pero a
+     * diferencia del anterior, usamos una clase estática que lo lanza.
+     */
+    public ClientDDBB() {
 
-	public Inserts getInserts() {
-		return inserts;
-	}
-	public void setInserts(Inserts inserts) {
-		this.inserts = inserts;
-	}
-	
-	public Updates getUpdates() {
-		return updates;
-	}
-	public void setUpdates(Updates updates) {
-		this.updates = updates;
-	}
+        try {
+            synchronized (SEMAPHORE) {
 
-	public Deletes getDeletes() {
-		return deletes;
-	}
-	public void setDeletes(Deletes deletes) {
-		this.deletes = deletes;
-	}						
-	
-	
+                clientDDBB = ServerDDBB.getServer().openClient();
+
+                selects = new Selects(clientDDBB);
+                inserts = new Inserts(clientDDBB);
+                updates = new Updates(clientDDBB);
+                deletes = new Deletes(clientDDBB);
+
+            }
+        } catch (Exception e) {
+            Log.e(CLASS_NAME, ExceptionUtils.getString(e));
+        }
+    }
+
+    /**
+     * 
+     * @param cliente
+     */
+    public ClientDDBB(final ObjectContainer clientDDBB) {
+
+        try {
+            synchronized (SEMAPHORE) {
+
+                selects = new Selects(clientDDBB);
+                inserts = new Inserts(clientDDBB);
+                updates = new Updates(clientDDBB);
+                deletes = new Deletes(clientDDBB);
+
+            }
+
+        } catch (Exception e) {
+            Log.e(CLASS_NAME, ExceptionUtils.getString(e));
+        }
+    }
+
+    /**
+     * Constructor al que le pasamos un servidor para que lo utilice en vez de
+     * utilizar el que pone en memoria la clase ServerBBDDEmbebido.
+     * 
+     * Este constructor esta creado para ser utilizado en la Migración de BBDD.
+     * 
+     * @param server
+     */
+    public ClientDDBB(final ObjectServer serverDDBB) {
+
+        try {
+            synchronized (SEMAPHORE) {
+
+                clientDDBB = serverDDBB.openClient();
+
+                selects = new Selects(clientDDBB);
+                inserts = new Inserts(clientDDBB);
+                updates = new Updates(clientDDBB);
+                deletes = new Deletes(clientDDBB);
+
+            }
+        } catch (Exception e) {
+            Log.e(CLASS_NAME, ExceptionUtils.getString(e));
+        }
+    }
+
+    /**
+     * Function that close the ClientDDBB if it's opened previously
+     */
+    public void close() {
+        if (!isClosed()) {
+            // close the ObjectContainer
+            clientDDBB.close();
+        }
+    }
+
+    /**
+     * Function that said if the client is closed
+     * 
+     * @return true or false if the clientDDBB is closed or not
+     * @see boolean
+     */
+    public boolean isClosed() {
+        if (clientDDBB != null) {
+            return clientDDBB.ext().isClosed();
+        } else {
+            return true;
+        }
+    }
+
+    public boolean isEmpty() {
+        if (clientDDBB.ext().query(Object.class).size() == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void commit() {
+        clientDDBB.commit();
+    }
+
+    public ObjectContainer getClientDDBB() {
+        return clientDDBB;
+    }
+
+    public void setClientDDBB(final ObjectContainer clientDDBB) {
+        this.clientDDBB = clientDDBB;
+    }
+
+    public Selects getSelects() {
+        return selects;
+    }
+
+    public void setSelects(final Selects selects) {
+        this.selects = selects;
+    }
+
+    public Inserts getInserts() {
+        return inserts;
+    }
+
+    public void setInserts(final Inserts inserts) {
+        this.inserts = inserts;
+    }
+
+    public Updates getUpdates() {
+        return updates;
+    }
+
+    public void setUpdates(final Updates updates) {
+        this.updates = updates;
+    }
+
+    public Deletes getDeletes() {
+        return deletes;
+    }
+
+    public void setDeletes(final Deletes deletes) {
+        this.deletes = deletes;
+    }
 
 }
